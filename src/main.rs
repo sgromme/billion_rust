@@ -2,7 +2,7 @@ use std::collections::HashMap;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-#[derive(Default, Debug, Clone)]
+#[derive(Debug, Clone)]
 struct CityData {
     min: f64,
     max: f64,
@@ -32,8 +32,8 @@ fn main() {
 
     let msg = "Failed to open file";
     let file_path = "/home/sgromme/source/1brc/data/measurements.txt";
-    let file_path_test = "measurements.txt";
-    let file = File::open(file_path_test).expect(msg);
+    let file_path = "measurements.txt";
+    let file = File::open(file_path).expect(msg);
 
     //
     let file = BufReader::new(file);
@@ -54,7 +54,7 @@ fn main() {
 
     for (city, data) in city_data {
         println!(
-            "{}: min: {}, max: {}, avg: {}",
+            "{}: min: {}, max: {}, avg: {:.2}",
             city,
             data.min,
             data.max,

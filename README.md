@@ -11,5 +11,9 @@ user    0m0.426s
 sys     4m26.589s
 
 
+# create a small subset of data in current directory
+cat head -n 10 /home/sgromme/source/1brc/data/measurements.txt > measurements.txt
+
+
 
 
