@@ -1,0 +1,52 @@
+Dovzhansk;-95.0
+Laoac East;-68.0
+Tankal;-22.1
+Otavalo;32.8
+Totolapan;65.6
+Austintown;54.7
+Heidenau;-43.6
+Cernay;64.3
+Bunhe;15.0
+Neykkārappatti;10.7
+Banaz;13.4
+Itamonte;96.7
+Major Isidoro;18.3
+San Miniato;-46.2
+Kasongo-Lunda;-39.3
+Malepur;94.5
+Eschweiler;-42.2
+Karma;-9.9
+Tíogollo;-11.3
+Three Lakes;-90.0
+Komagane;-62.7
+Huanghuajie;24.1
+Drochia;16.2
+Tehata;-80.1
+Tolūprpatti;98.8
+Atakpamé;3.1
+Prokopyevsk;-85.2
+Picuí;40.9
+Phú Thọ;-97.9
+Krumbach;14.4
+Chuquicamata;9.5
+Kirkintilloch;44.1
+Châteauneuf-les-Martigues;81.2
+Ollerton;-45.2
+Sitrah;-42.1
+Thérmi;61.0
+Volda;-27.1
+South Houston;3.2
+Kottagūdem;0.7
+Kannānendal;59.6
+Maur;-64.1
+Francofonte;-11.7
+Andrychów;90.4
+Barki Ballia;-80.7
+Al Qurayyāt;10.8
+Al Qurayyāt;36.6
+Al Qurayyāt;36.6
+Al Qurayyāt;36.6
+Al Qurayyāt;100
+
+
+

@@ -1,14 +1,39 @@
 use std::collections::HashMap;
 use std::fs::File;
-use std::io::{self, BufRead, BufReader};
-use std::path::Path;
+use std::io::{BufRead, BufReader};
+
+#[derive(Default, Debug, Clone)]
+struct CityData {
+    min: f64,
+    max: f64,
+    sum: f64,
+    count: u32,
+}
+
+impl CityData {
+    fn update(&mut self, temp: f64) {
+        self.min = self.min.min(temp);
+        self.max = self.max.max(temp);
+        self.sum += temp;
+        self.count += 1;
+    }
+    fn update_initial(temp: f64) -> Self {
+        CityData {
+            min: temp,
+            max: temp,
+            sum: temp,
+            count: 1,
+        }
+    }
+}
 
 fn main() {
-    let mut data = HashMap::<String, f64>::new();
+    let mut city_data = HashMap::<String, CityData>::new();
 
     let msg = "Failed to open file";
     let file_path = "/home/sgromme/source/1brc/data/measurements.txt";
-    let file = File::open(file_path).expect(msg);
+    let file_path_test = "measurements.txt";
+    let file = File::open(file_path_test).expect(msg);
 
     //
     let file = BufReader::new(file);
@@ -21,8 +46,19 @@ fn main() {
             // None continue
             continue;
         };
-        let city_data = data.entry(city.to_string()).or_insert(temp);
-        // max temp for city, if temp is higher than current max, update it
-        *city_data = temp.max(*city_data);
+        city_data
+            .entry(city)
+            .and_modify(|d| d.update(temp))
+            .or_insert_with(|| CityData::update_initial(temp));
+    }
+
+    for (city, data) in city_data {
+        println!(
+            "{}: min: {}, max: {}, avg: {}",
+            city,
+            data.min,
+            data.max,
+            data.sum / data.count as f64
+        );
     }
 }
