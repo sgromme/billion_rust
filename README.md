@@ -12,7 +12,16 @@ sys     4m26.589s
 
 
 # create a small subset of data in current directory
-cat head -n 10 /home/sgromme/source/1brc/data/measurements.txt > measurements.txt
+head -n 10 /home/sgromme/source/1brc/data/measurements.txt > measurements.txt
+
+
+
+
+#  How to parallize the data
+
+Memory map file? partition it, hash values , then merge and 
+what about 
+
 
 
 

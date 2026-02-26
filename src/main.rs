@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::{BTreeMap, HashMap};
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
@@ -25,15 +25,21 @@ impl CityData {
             count: 1,
         }
     }
+    fn merge(&mut self, other: &CityData) {
+        self.min = self.min.min(other.min);
+        self.max = self.max.max(other.max);
+        self.sum += other.sum;
+        self.count += other.count;
+    }
 }
 
 fn main() {
     let mut city_data = HashMap::<String, CityData>::new();
 
     let msg = "Failed to open file";
-    let file_path = "/home/sgromme/source/1brc/data/measurements.txt";
-    let file_path = "measurements.txt";
-    let file = File::open(file_path).expect(msg);
+    let mut _file_path = "/home/sgromme/source/1brc/data/measurements.txt";
+    _file_path = "measurements.txt";
+    let file = File::open(_file_path).expect(msg);
 
     //
     let file = BufReader::new(file);
@@ -52,9 +58,12 @@ fn main() {
             .or_insert_with(|| CityData::update_initial(temp));
     }
 
+    // Putting the HashMap into a BtreeMap to sort by city name
+    let city_data = BTreeMap::from_iter(city_data.into_iter());
+
     for (city, data) in city_data {
-        println!(
-            "{}: min: {}, max: {}, avg: {:.2}",
+        print!(
+            " {}: min: {}, max: {}, avg: {:.2}",
             city,
             data.min,
             data.max,
