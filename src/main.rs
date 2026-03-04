@@ -38,7 +38,7 @@ fn main() {
 
     let msg = "Failed to open file";
     let mut _file_path = "/home/sgromme/source/1brc/data/measurements.txt";
-    _file_path = "measurements.txt";
+    //_file_path = "measurements.txt";
     let file = File::open(_file_path).expect(msg);
 
     //
