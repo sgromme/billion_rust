@@ -64,11 +64,7 @@ fn main() {
     let file = File::open(_file_path).expect(msg);
     let mmap = unsafe { MmapOptions::new().map(&file).expect("Failed to mmap file") };
 
-    //
-    //let file = BufReader::new(file);
-
     let num_threads = rayon::current_num_threads();
-    println!("Threads: {}, mmap length: {}", num_threads, mmap.len());
 
     // Build partitions aligned to newlines
     let mut partitions: Vec<(usize, usize)> = Vec::new();
