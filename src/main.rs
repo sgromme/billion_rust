@@ -100,13 +100,15 @@ fn main() {
     // Putting the HashMap into a BtreeMap to sort by city name
     let city_data = BTreeMap::from_iter(city_data.into_iter());
 
+    print!("{{");
     for (city, data) in city_data {
         print!(
-            " {}: min: {}, max: {}, avg: {:.2}",
+            "{}={}/{:.1}/{}, ",
             city,
             data.min,
-            data.max,
-            data.sum / data.count as f64
+            data.sum / data.count as f64,
+            data.max
         );
     }
+    print!("}}");
 }
