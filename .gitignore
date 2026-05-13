@@ -24,3 +24,8 @@ target
 # Added by cargo
 
 /target
+
+
+# Output file
+output.txt
+measurements.txt
